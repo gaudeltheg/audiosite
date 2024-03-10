@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+   <style>
+      /* Basic styling for the dashboard */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+nav a{
+    color: #fff;
+    padding: 5px;
+    margin: 6px 6px 6px;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+nav a:hover{
+    background-color: #fff;
+    color: #333;
+}
+nav a .logout:hover{
+    background-color: none;
+}
+.logout button{
+    padding: 6px;
+    margin: 4px;
+    color: #333;
+    /* background-color: #fff; */
+    border: none;
+    width:10vw;
+    cursor: pointer;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.section {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.section h2 a{
+    text-decoration: none;
+    color: #333;
+}
+.section h2 a:hover{
+    text-decoration: underline;
+}
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+}
+@media only screen and (max-width:450px){
+    nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .logout button{
+        width: 25vw;
+    }
+    .logout button:hover{
+        background-color:  none;
+    }
+}
+   </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Admin Dashboard</h1>
+        <nav>
+            <a href="dashboard.html">Home</a>
+            <a href="poetryUpload.html">Poetry</a>
+            <a href="podcastUpload.html">Podcasts</a>
+            <a href="writingUpload.html">Writings</a>
+            <a href="usercontact.html">Users</a>
+            <a href="#" class="logout"><button >Log Out</button></a>
+        </nav>
+    </div>
+    <div class="container">
+        
+        <div class="section">
+            <h2><a href="poetryupload.php">Poetry Section</a></h2>
+         
+        </div>
+        <div class="section">
+            <h2><a href="podcastUpload.html">Podcasts Section</a></h2>
+            
+        </div>
+        <div class="section">
+            <h2><a href="writingUpload.html">Writings Section</a></h2>
+            
+        </div>
+        <div class="section">
+            <h2><a href="usercontact.html">Users in Contact</a></h2>
+            
+        </div>
+        
+    </div>
+    <div class="footer">
+        &copy; 2024 Admin Dashboard | All rights reserved
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.footer-1,
+.footer-2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.category,
+.subscribe,
+.final,
+.socials {
+    flex: 1;
+    margin: 10px;
+}
+
+.category h2,
+.subscribe h2,
+.final h2 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.category ul,
+.subscribe .form,
+.socials ul {
+    list-style: none;
+    padding: 0;
+}
+
+.category ul li,
+.subscribe .form input,
+.subscribe .form button,
+.socials ul li {
+    margin-bottom: 8px;
+}
+
+.category ul li a,
+.subscribe .form input[type="email"],
+.subscribe .form button {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+}
+
+.subscribe .form input[type="email"],
+.subscribe .form button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.subscribe .form button {
+    background-color: #ff6b6b;
+    color: #fff;
+    cursor: pointer;
+}
+
+.final img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.socials ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.socials ul li:last-child {
+    margin-right: 0;
+}
+
+.socials ul li a img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.socials ul li a img:hover {
+    transform: scale(1.2);
+}
+
+@media only screen and (max-width: 768px) {
+    .category,
+    .subscribe,
+    .final,
+    .socials {
+        flex: 100%;
+    }
+}
