@@ -137,7 +137,7 @@ $username = $_SESSION['username'];
             <h2><a href="fpodcastupload.php">Featured Podcasts</a></h2>
         </div>
         <div class="section">
-            <h2><a href="usercontact.html">Users in Contact</a></h2>
+            <h2><a href="usercontact.php">Users in Contact</a></h2>
         </div>
     </div>
     <div class="footer">
