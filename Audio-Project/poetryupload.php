@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Check if the user is not logged in
+if (!isset($_SESSION['loggedIn'])) {
+    // Redirect to the login page
+    header("Location: dashboardlogin.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Sorry, a record with the same title already exists.";
     } else {
         // Prepare and bind parameters for inserting new record
-        $insert_stmt = $conn->prepare("INSERT INTO poetries (title, author, audiofile, lyrics, uploadtime, image) VALUES (?, ?, ?, ?, NOW(), ?)");
+        $insert_stmt = $conn->prepare("INSERT INTO poetries (title, author, audiofile, lyrics, image) VALUES (?, ?, ?, ?, ?)");
         $insert_stmt->bind_param("sssss", $audio_title, $author_name, $audio_file, $lyrics_description, $image_file);
 
         // Set parameters for inserting new record
@@ -116,28 +126,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $image_file = basename($_FILES["image_file"]["name"]);
         $lyrics_description = $_POST['lyrics_description'];
 
-        // Check if the file already exists in the destination directory
-        $target_dir = "images/"; // Directory where image files will be uploaded
-        $target_file = $target_dir . basename($_FILES["image_file"]["name"]);
+        // Check if the file already exists in the destination directory and overwrite it if needed
+        $target_dir = "poetries/"; // Directory where audio files will be uploaded
+        $target_file = $target_dir . basename($_FILES["audio_file"]["name"]);
 
-        if (file_exists($target_file)) {
-            echo "Sorry, file already exists.";
-        } else {
-            // File upload handling
-            if ($_FILES["image_file"]["error"] !== UPLOAD_ERR_OK) {
-                echo "Error uploading file. Error code: " . $_FILES["image_file"]["error"];
-            } else {
-                if (move_uploaded_file($_FILES["image_file"]["tmp_name"], $target_file)) {
-                    // Execute the SQL statement to insert new record
-                    if ($insert_stmt->execute() === TRUE) {
-                        echo "Successfully uploaded!";
-                    } else {
-                        echo "Error: " . $insert_stmt->error;
-                    }
+        // File upload handling for audio file
+        if (move_uploaded_file($_FILES["audio_file"]["tmp_name"], $target_file)) {
+            // File uploaded successfully
+            // Proceed with image upload and database insertion
+            $image_target_dir = "images/"; // Directory where image files will be uploaded
+            $image_target_file = $image_target_dir . basename($_FILES["image_file"]["name"]);
+
+            // File upload handling for image file
+            if (move_uploaded_file($_FILES["image_file"]["tmp_name"], $image_target_file)) {
+                // Execute the SQL statement to insert new record
+                if ($insert_stmt->execute() === TRUE) {
+                    echo '<script>alert("Successfully uploaded!");</script>';
                 } else {
-                    echo "Sorry, there was an error moving the uploaded file.";
+                    echo "Error: " . $insert_stmt->error;
                 }
+            } else {
+                echo "Sorry, there was an error moving the uploaded image file.";
             }
+        } else {
+            echo "Sorry, there was an error moving the uploaded audio file.";
         }
     }
 
@@ -147,8 +159,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
-
-
-
 </body>
 </html>
