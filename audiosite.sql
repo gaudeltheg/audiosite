@@ -73,6 +73,23 @@ CREATE TABLE `fpoetries` (
 -- --------------------------------------------------------
 
 --
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `audiosite`
+--
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `loginadmin`
 --
 
@@ -85,6 +102,34 @@ CREATE TABLE `loginadmin` (
 
 --
 -- Dumping data for table `loginadmin`
+--
+
+INSERT INTO `loginadmin` (`id`, `username`, `password`, `uid`) VALUES
+(54123, 'prajwal', '##@@PRAjwal12312', 3),
+(77788, 'aayush', '#@#@AAYush78', 5),
+(77777, 'liberty', '!!LIBerty@@##7', 7);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `loginadmin`
+--
+ALTER TABLE `loginadmin`
+  ADD PRIMARY KEY (`uid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `loginadmin`
+--
+ALTER TABLE `loginadmin`
+  MODIFY `uid` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+COMMIT;
+
 --
 
 -- --------------------------------------------------------
