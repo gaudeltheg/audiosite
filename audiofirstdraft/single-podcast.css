@@ -1,0 +1,171 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    background-color:#70254f;
+}
+h2{
+    text-align: center;
+    color: white;
+    margin-top: 15px;
+    font-size: 30px;
+}
+.podcast-container{
+    display: flex;
+    width: 100vw;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
+.options{
+    background-color:#351225;
+    height:71vh ;
+    width: 30vw;
+    overflow: hidden;   
+}
+.option{
+    margin-left: 10px;
+    font-size: 20px;
+    padding: 15px;
+    cursor: pointer;
+    color: white;
+   
+}
+.container-1{
+    /* margin: auto; */
+    
+    left:8.1%; 
+    width: 55vw;
+    height: 71vh;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: absolute;
+    visibility: hidden;
+    flex-direction: column;
+    background-color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+.container.open, .container-1.open {
+    visibility: visible;
+    opacity: 1;
+}
+.openpopup{
+    visibility: visible;
+    
+}
+.closepopup{
+    visibility: hidden;
+}
+
+.container{
+    /* margin: auto; */
+    width: 55vw;
+    height: 71vh;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+    background-color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+
+}
+.title{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+p{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    text-align: justify;
+    font-size: larger;
+}
+h3{
+    margin-top: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 5px;
+    margin-left: 10px;
+    font-size: xx-large
+}
+.audio-container{
+    width: 50vw;
+    height: 20vh;
+}
+.audio-container-1{
+    width: 50vw;
+    height: 20vh;
+}
+audio{
+    height: 10vh;
+    width:48vw ;
+}
+audio::-webkit-media-controls-play-button {
+   /* background-color: black; */
+   border-radius: 50%;
+   
+}
+audio::-webkit-media-controls-panel {
+    
+    background-color: white;
+    cursor: pointer;
+}
+.dropdown{
+    text-align: center;
+    margin-top: 10px;
+    position: relative;
+    display: none;
+}
+
+   /* Style the dropdown button */
+   .dropdown .button {
+    background-color: #4caf50;
+    color: white;
+    border: 2px solid #4caf50 ;
+    border-radius: 9px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Style the dropdown menu */
+  .dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  /* Style the list items inside the dropdown menu */
+  .dropdown .dropdown-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .dropdown .dropdown-menu ul li {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    color: black;
+    font-weight: 10px;
+    text-align: center;
+    
+  }
+
+  /* Change color of dropdown items on hover */
+  .dropdown .dropdown-menu ul li:hover {
+    background-color: #764b4b;
+  }
