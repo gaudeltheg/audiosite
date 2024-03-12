@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const audioElements = document.querySelectorAll(".cards .audio, .popup .audio");
-    const visualizerCanvases = document.querySelectorAll(".cards .visualizer, .popup .visualizer");
-    const playButtons = document.querySelectorAll(".cards .playButton, .popup .playButton");
+    const audioElements = document.querySelectorAll(".cards .audio");
+    const visualizerCanvases = document.querySelectorAll(".cards .visualizer");
+    const playButtons = document.querySelectorAll(".cards .playButton");
 
     // Function to create audio context for each card
     const createAudioContext = (audioElement, visualizerCanvas) => {
@@ -114,169 +114,51 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
-
-const popUp = document.querySelector(".popup");
-const body = document.querySelector("body");
-const container = document.querySelector(".container");
-const clos = document.querySelectorAll(".okbtn");
-const submit = document.querySelectorAll(".cards");
-const poetryContainer = document.querySelector(".poetry-container");
-// Get references to elements in the cards section
-const cards = document.querySelectorAll('.cards');
-const popupAudio = document.querySelector('.popup .popupaudio');
-const popupPlayButton = document.querySelector('.popup .playButton');
-
-
-
-// Add event listener to each card
-cards.forEach(card => {
-    card.addEventListener('click', function() {
-        console.log('Card clicked'); // Log to check if the event listener is triggered
-        
-        // Check if the audio in the card is already playing
-        const cardAudio = card.querySelector('.audio');
-        if (!cardAudio.paused) {
-            // Audio in the card is playing, pause it
-            cardAudio.pause();
-        }
-
-        // // Play audio in the popup section
-        // popupAudio.currentTime = 0; // Reset audio to the beginning
-        // popupAudio.play();
-        // updatePlayButton(popupPlayButton, true); // Update the play button in the popup
-        // openPopup();
-    });
-});
-
-// Function to update play button text and state
-function updatePlayButton(button, isPlaying) {
-    if (isPlaying) {
-        button.textContent = "Pause";
-    } else {
-        button.textContent = "Play";
-    }
-}
-
-
-
-function applyBlur() {
-    poetryContainer.classList.add('active');
-    popUp.classList.remove("active");
-}
-
-function removeBlur() {
-    poetryContainer.classList.remove('active');
-}
-
-function openPopup() {
-    popUp.classList.add("open-popup");
-    applyBlur();
-   
-}
-
-function closePopup() {
-    popUp.classList.remove("open-popup");
-    removeBlur();
-    
-}
-
-clos.forEach(button => {
-    button.addEventListener("click", () => {
-        closePopup();
-        popupAudio.pause();
-        
-    });
-});
-
-submit.forEach(button => {
-    button.addEventListener("click", () => {
-        openPopup();
-    });
-});
-
-popUp.addEventListener("click", (event) => {
-    event.stopPropagation();
-});
-
-
-let scrollPosition = 0; // Variable to store the scroll position
-
-submit.forEach(button => {
-    button.addEventListener("click", () => {
-        // Store the current scroll position
-        scrollPosition = window.scrollY;
-
-        // Scroll the window to the top of the webpage
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth" // Add smooth scrolling behavior if supported by the browser
-        });
-
-        // Open the popup and apply blur
-        openPopup();
-        applyBlur();
-    });
-});
-
-clos.forEach(button => {
-    button.addEventListener("click", () => {
-        // Close the popup
-        closePopup();
-        removeBlur();
-
-        // Restore the scroll position
-        window.scrollTo({
-            top: scrollPosition,
-            behavior: "smooth" // Add smooth scrolling behavior if supported by the browser
-        });
-    });
-});
-
 document.addEventListener("DOMContentLoaded", function () {
-    const audioElements = document.querySelectorAll(".cards .audio, .popup .audio");
-    const playButtons = document.querySelectorAll(".cards .playButton, .popup .playButton");
-    const visualizerCanvases = document.querySelectorAll(".cards .visualizer, .popup .visualizer");
+    const audioElements = document.querySelectorAll(".cards .audio");
+    const playButtons = document.querySelectorAll(".cards .playButton");
+    const visualizerCanvases = document.querySelectorAll(".cards .visualizer");
 
     let currentPlayingAudio = null;
     let currentVisualizerCanvas = null;
     let currentCanvasContext = null;
     let isPaused = false;
 
-    // Function to play audio
-    function playAudio(audioElement, visualizerCanvas, canvasContext, playButton) {
-        if (currentPlayingAudio !== audioElement) {
-            if (currentPlayingAudio) {
-                currentPlayingAudio.pause(); // Pause the currently playing audio
-                if (currentCanvasContext) {
-                    currentCanvasContext.clearRect(0, 0, visualizerCanvas.width, visualizerCanvas.height);
-                }
+   // Function to play audio
+function playAudio(audioElement, visualizerCanvas, canvasContext, playButton) {
+    if (currentPlayingAudio !== audioElement) {
+        if (currentPlayingAudio) {
+            currentPlayingAudio.pause(); // Pause the currently playing audio
+            if (currentCanvasContext) {
+                currentCanvasContext.clearRect(0, 0, visualizerCanvas.width, visualizerCanvas.height);
             }
-
-            currentPlayingAudio = audioElement;
-            currentVisualizerCanvas = visualizerCanvas;
-            currentCanvasContext = canvasContext;
-
-            currentPlayingAudio.play(); // Play the selected audio
-            isPaused = false;
-        } else {
-            if (isPaused) {
-                currentPlayingAudio.play(); // If paused, resume playing
-                isPaused = false;
-            } else {
-                currentPlayingAudio.pause(); // If playing, pause
-                isPaused = true;
-            }
+            updatePlayButtonText(playButtons[Array.from(audioElements).indexOf(currentPlayingAudio)], "Play"); // Update play button text for previously playing audio
         }
 
-        // Update play/pause button text
-        updatePlayButtonText(playButton);
+        currentPlayingAudio = audioElement;
+        currentVisualizerCanvas = visualizerCanvas;
+        currentCanvasContext = canvasContext;
+
+        currentPlayingAudio.play(); // Play the selected audio
+        isPaused = false;
+    } else {
+        if (isPaused) {
+            currentPlayingAudio.play(); // If paused, resume playing
+            isPaused = false;
+        } else {
+            currentPlayingAudio.pause(); // If playing, pause
+            isPaused = true;
+        }
     }
 
-    // Function to update play button text
-    function updatePlayButtonText(playButton) {
-        playButton.textContent = isPaused ? "Play" : "Pause";
-    }
+    updatePlayButtonText(playButton, isPaused ? "Play" : "Pause"); // Update play button text for current audio
+}
+
+// Function to update play button text
+function updatePlayButtonText(playButton, text) {
+    playButton.textContent = text;
+}
+
 
     // Function to draw visualizer
     function drawVisualizer(analyser, dataArray, canvasContext, visualizerCanvas) {
@@ -301,44 +183,3 @@ document.addEventListener("DOMContentLoaded", function () {
 popUp.addEventListener("click", (event) => {
     event.stopPropagation();
 });
-
-// // Get reference to play/pause button in the popup section
-// const playButtonPopup = document.querySelector('.popup .playButton');
-
-// // Add event listener to the play/pause button in the cards section
-// playButtonCards.addEventListener('click', function() {
-//     // Open the popup section
-//     openPopup();
-
-//     // Play the music in the popup section
-//     playButtonPopup.click(); // Simulate a click on the play button in the popup
-// });
-
-
-
-
-    // document.body.addEventListener("click", (event) => {
-    //     let isSubmitClicked = false;
-    //     submit.forEach(button => {
-    //         if (button.contains(event.target)) {
-    //             isSubmitClicked = true;
-    //         }
-    //     });
-    //     if (!popUp.contains(event.target) && !isSubmitClicked) {
-    //         closePopup();
-    //         removeBlur();
-    //     } 
-    // });
-
-    // function isSubmitClicked(target) {
-    //     let isSubmitClicked = true;
-    //     submit.forEach(button => {
-    //         if (button.contains(target)) {
-    //             isSubmitClicked = false;
-    //         }
-    //     });
-    //     return isSubmitClicked;
-    // }
-   
-   
-    
