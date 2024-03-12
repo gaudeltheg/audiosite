@@ -266,6 +266,23 @@
   </footer>
   
    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    const audios = document.querySelectorAll('audio');
+
+    audios.forEach(audio => {
+        audio.addEventListener('play', function() {
+            pauseAllExcept(this);
+        });
+    });
+
+    function pauseAllExcept(currentAudio) {
+        audios.forEach(audio => {
+            if (audio !== currentAudio) {
+                audio.pause();
+            }
+        });
+    }
+});
 document.getElementById("exploreButton").addEventListener("click", function() {
   window.scrollBy({
     top: window.innerHeight,
