@@ -1,36 +1,34 @@
 @media screen and (max-width: 800px) {
-    .podcast-container{
+    .poetry-container{
         display: flex;
         width: 100%;
+        margin: 0px;
+        gap: 0;
     }
     .cards{
-        width: 46vw;
+        width: 78vw;
+        height: auto;
+        overflow: hidden;
         /* height: 30vh; */
     }
-    /* .image-container img{
-        width: 38vw;
-    } */
+    
 .container{
     margin: auto;
-    width: 40vw;
+    width: 71vw;
     margin-top: 15px;
 }
-.image-container img{
-    width: 40vw;
-    
-   }
    .cards .container canvas{
     /* margin: auto; */
     display: none;
    }
  
    .audio-container{
-    width: 40vw;
+    width: 71vw;
     left: 1%;
    }
    audio{
     left: 1%;
-    width: 41vw;
+    width: 65vw;
    }
    section{
     height: 10vh;
@@ -43,4 +41,33 @@
     text-align: center;
     width: 16vw;
    }
+   .image-container img{
+    width: 60vw;
+    height: 30vh;
+    
+   }
+   .popup{
+    width: 95%;
+    height: auto;
+    padding: 0;
+    top: 50%;
+    
+   }
+   .popup .popup-canvas{
+    width: 70vw;
+    height: 20vh;
+    
+   }
+   .popup p{
+    margin-bottom: 20px;
+   }
+   .popup .audio{
+    width: 70vw;
+   }
+   .popup .popup-image img{
+    margin-top: 15px;
+    height: auto;
+    width: 80%;
+   }
+    
 }
