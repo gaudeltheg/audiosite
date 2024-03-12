@@ -32,6 +32,7 @@ $username = $_SESSION['username'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+
     <style>
         /* Basic styling for the dashboard */
         body {
@@ -111,6 +112,7 @@ $username = $_SESSION['username'];
             }
         }
     </style>
+
 </head>
 <body>
     <div class="navbar">
@@ -123,6 +125,9 @@ $username = $_SESSION['username'];
     <div class="container">
         <div class="section">
             <h2><a href="poetryupload.php">Poetry Section</a></h2>
+        </div>
+        <div class="section">
+            <h2><a href="Uploaded-poetry.php">Uploaded-Poetry</a></h2>
         </div>
         <div class="section">
             <h2><a href="podcastupload.php">Podcasts Section</a></h2>
