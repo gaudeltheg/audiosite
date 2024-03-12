@@ -115,43 +115,44 @@ if(isset($_GET['id'])) {
 <body>
 
     <div class="nav-bar">
-      <div class="logo-flex">
-        <a href="index.html"> <img src="logo.webp" alt="logo" /></a>
-      </div>
-      <div class="burger" onclick="toggleNavItemsFlex()">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </div>
+    <div class="logo-flex">
+        <a href="index.php"> <img src="logo.webp" alt="logo" /></a>
     </div>
-
-    <div class="nav-items-flex" id="navItemsFlex">
-      <button class="close-button" onclick="closeToggle()">✕</button>
-      <ul>
-
-        <li>
-          <span class="material-symbols-outlined">home</span>
-          <a href="index.html"> HOME </a>
-        </li>
-        <li>
-          <span class="material-symbols-outlined">podcasts</span>
-          <a href="podcast.html"> PODCASTS</a>
-        </li>
-        <li>
-          <span class="material-symbols-outlined">library_music</span>
-          <a href="poetry.html"> POETRIES</a>
-        </li>
-        <li>
-          <span class="material-symbols-outlined">event_note</span>
-          <a href="writing.html"> WRITINGS</a>
-        </li>
-        <li>
-          <span class="material-symbols-outlined">contact_phone</span>
-          <a href="contact.html"> CONTACT</a>
-        </li>
-
-      </ul>
+    <div class="burger" onclick="toggleNavItemsFlex()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
     </div>
+</div>
+
+<div class="nav-items-flex" id="navItemsFlex">
+    <button class="close-button" onclick="closeToggle()">✕</button>
+    <ul>
+
+        <li>
+            <span class="material-symbols-outlined">home</span>
+            <a href="index.php"> HOME </a>
+        </li>
+        <li>
+            <span class="material-symbols-outlined">podcasts</span>
+            <a href="podcast.php"> PODCASTS</a>
+        </li>
+        <li>
+            <span class="material-symbols-outlined">library_music</span>
+            <a href="poetry.php"> POETRIES</a>
+        </li>
+        <li>
+            <span class="material-symbols-outlined">event_note</span>
+            <a href="writing.php"> WRITINGS</a>
+        </li>
+        <li>
+            <span class="material-symbols-outlined">contact_phone</span>
+            <a href="contact.php"> CONTACT</a>
+        </li>
+
+    </ul>
+</div>
+
 
     <div id="navbarContainer"></div>
 
