@@ -26,7 +26,8 @@ h2 {
     /* border: 1px solid black; */
     background-color: white;
     height: auto;
-    width: 30vw;
+    width: 26vw;
+    overflow: hidden;
     border-radius: 10px;
     margin-top: 40px;
     cursor: pointer;
@@ -34,7 +35,7 @@ h2 {
 }
 
 .container {
-    width: 30vw;
+    width: 25vw;
     padding: 6px;
     text-align: center;
     margin-top: 15px;
@@ -47,9 +48,9 @@ h2 {
 }
 
 .image-container img{
-    height: 20vh;
+    height: 38vh;
     width: 23vw;
-
+    object-fit: fit;
 }
 audio{
     height: 15px;
@@ -57,7 +58,7 @@ audio{
    
 }
 .audio-container{
-   width: 26vw;
+   width: 23vw;
     transform: translate(3%, 19%);
     background-color: white;
 }
