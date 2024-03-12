@@ -36,9 +36,26 @@ img {
     height: auto;
 }
 
+.btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.btn-edit {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+}
     </style> 
 </head>
 <body>
+
     <div class="container">
         <h2>Uploaded Poetry</h2>
         <table id="myTable">
@@ -49,6 +66,7 @@ img {
                     <th>Poetry File</th>
                     <th>Poetry Image</th>
                     <th>Lyrics/Description</th>
+                    <th>Actions</th> <!-- New column for edit and delete buttons -->
                 </tr>
             </thead>
             <tbody>
@@ -64,6 +82,10 @@ img {
                     //     echo "<td>".$row['audio_file']."</td>";
                     //     echo "<td><img src='".$row['image_file']."' alt='Poetry Image'></td>";
                     //     echo "<td>".$row['lyrics_description']."</td>";
+                    //     echo "<td>";
+                    //     echo "<button class='btn btn-edit' onclick='editRow(".$row['id'].")'>Edit</button>";
+                    //     echo "<button class='btn btn-delete' onclick='deleteRow(".$row['id'].")'>Delete</button>";
+                    //     echo "</td>";
                     //     echo "</tr>";
                     // }
                     
@@ -72,9 +94,23 @@ img {
         </table>
     </div>
 
-<script>
-    let table = new DataTable('#myTable');
-</script>
+    <script>
+        // Function to handle editing a row
+        function editRow(id) {
+            // You can implement your edit logic here
+            alert("Edit row with ID: " + id);
+        }
+        
+        // Function to handle deleting a row
+        function deleteRow(id) {
+            // You can implement your delete logic here
+            alert("Delete row with ID: " + id);
+        }
+    </script>
+    
     <script src="//cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
+    <script>
+        let table = new DataTable('#myTable');
+    </script>
 </body>
 </html>

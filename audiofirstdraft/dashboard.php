@@ -124,13 +124,19 @@ $username = $_SESSION['username'];
     </div>
     <div class="container">
         <div class="section">
-            <h2><a href="poetryupload.php">Poetry Section</a></h2>
+            <h2><a href="poetryupload.php">Poetry Upload Section</a></h2>
         </div>
         <div class="section">
             <h2><a href="Uploaded-poetry.php">Uploaded-Poetry</a></h2>
         </div>
         <div class="section">
-            <h2><a href="podcastupload.php">Podcasts Section</a></h2>
+            <h2><a href="Uploaded-Featued-Poetry.php">Uploaded-Featured-Poetry</a></h2>
+        </div>
+        <div class="section">
+            <h2><a href="podcastupload.php">Podcasts Upload Section</a></h2>
+        </div>
+        <div class="section">
+            <h2><a href="uploaded-podcast.php">Uploaded-Podcast Section</a></h2>
         </div>
         <div class="section">
             <h2><a href="writingupload.php">Writings Section</a></h2>
