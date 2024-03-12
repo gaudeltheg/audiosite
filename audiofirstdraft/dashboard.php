@@ -130,8 +130,12 @@ $username = $_SESSION['username'];
             <h2><a href="Uploaded-poetry.php">Uploaded-Poetry</a></h2>
         </div>
         <div class="section">
-            <h2><a href="Uploaded-Featued-Poetry.php">Uploaded-Featured-Poetry</a></h2>
+            <h2><a href="fpoetryupload.php">Featured Poetries Upload</a></h2>
         </div>
+        <div class="section">
+            <h2><a href="Uploaded-Featured-Poetry.php">Uploaded-Featured-Poetry</a></h2>
+        </div>
+        
         <div class="section">
             <h2><a href="podcastupload.php">Podcasts Upload Section</a></h2>
         </div>
@@ -139,13 +143,16 @@ $username = $_SESSION['username'];
             <h2><a href="uploaded-podcast.php">Uploaded-Podcast Section</a></h2>
         </div>
         <div class="section">
-            <h2><a href="writingupload.php">Writings Section</a></h2>
+            <h2><a href="fpodcastupload.php">Featured Podcasts Upload</a></h2>
         </div>
         <div class="section">
-            <h2><a href="fpoetryupload.php">Featured Poetries</a></h2>
+            <h2><a href="uploaded-featured-podcast.php">Uploaded-featured-Podcast </a></h2>
         </div>
         <div class="section">
-            <h2><a href="fpodcastupload.php">Featured Podcasts</a></h2>
+            <h2><a href="writingupload.php">Writings Upload Section</a></h2>
+        </div>
+        <div class="section">
+            <h2><a href="uploaded-writing.php">Uploaded Writings Section</a></h2>
         </div>
         <div class="section">
             <h2><a href="usercontact.php">Users in Contact</a></h2>
