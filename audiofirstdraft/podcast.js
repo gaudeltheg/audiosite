@@ -124,40 +124,41 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentCanvasContext = null;
     let isPaused = false;
 
-    // Function to play audio
-    function playAudio(audioElement, visualizerCanvas, canvasContext, playButton) {
-        if (currentPlayingAudio !== audioElement) {
-            if (currentPlayingAudio) {
-                currentPlayingAudio.pause(); // Pause the currently playing audio
-                if (currentCanvasContext) {
-                    currentCanvasContext.clearRect(0, 0, visualizerCanvas.width, visualizerCanvas.height);
-                }
+   // Function to play audio
+function playAudio(audioElement, visualizerCanvas, canvasContext, playButton) {
+    if (currentPlayingAudio !== audioElement) {
+        if (currentPlayingAudio) {
+            currentPlayingAudio.pause(); // Pause the currently playing audio
+            if (currentCanvasContext) {
+                currentCanvasContext.clearRect(0, 0, visualizerCanvas.width, visualizerCanvas.height);
             }
-
-            currentPlayingAudio = audioElement;
-            currentVisualizerCanvas = visualizerCanvas;
-            currentCanvasContext = canvasContext;
-
-            currentPlayingAudio.play(); // Play the selected audio
-            isPaused = false;
-        } else {
-            if (isPaused) {
-                currentPlayingAudio.play(); // If paused, resume playing
-                isPaused = false;
-            } else {
-                currentPlayingAudio.pause(); // If playing, pause
-                isPaused = true;
-            }
+            updatePlayButtonText(playButtons[Array.from(audioElements).indexOf(currentPlayingAudio)], "Play"); // Update play button text for previously playing audio
         }
 
-        // Update play/pause button text
-        updatePlayButtonText(playButton);
+        currentPlayingAudio = audioElement;
+        currentVisualizerCanvas = visualizerCanvas;
+        currentCanvasContext = canvasContext;
+
+        currentPlayingAudio.play(); // Play the selected audio
+        isPaused = false;
+    } else {
+        if (isPaused) {
+            currentPlayingAudio.play(); // If paused, resume playing
+            isPaused = false;
+        } else {
+            currentPlayingAudio.pause(); // If playing, pause
+            isPaused = true;
+        }
     }
 
-    // Function to update play button text
-    function updatePlayButtonText(playButton) {
-        playButton.textContent = isPaused ? "Play" : "Pause";
-    }
+    updatePlayButtonText(playButton, isPaused ? "Play" : "Pause"); // Update play button text for current audio
+}
+
+// Function to update play button text
+function updatePlayButtonText(playButton, text) {
+    playButton.textContent = text;
+}
+
 
     // Function to draw visualizer
     function drawVisualizer(analyser, dataArray, canvasContext, visualizerCanvas) {
