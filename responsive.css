@@ -1,0 +1,110 @@
+@media only screen and (max-width:700px){
+    .containerr{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .card_container{
+        width: 85vw;
+    }
+    .box{
+        width: 80vw;
+    }
+    .box ul li audio{
+        width: 78vw;
+    }
+    .navbar{
+        display: none;
+    }
+}
+ 
+@media screen and (max-width: 700px) {
+    nav.navbar {
+      width: 0vw;
+      border-right: none;
+      transition: all 0.3s ease-in-out;
+      backdrop-filter: none;
+      opacity: 0;
+    }
+  
+    #content {
+      left: 0;
+      width: 100vw;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  
+    .hero p {
+      font-size: 40px;
+      /* top: 10px; */
+      margin-top: 10px;
+    }
+  
+    .hero span {
+      font-size: 12px;
+    }
+  
+    .hero a {
+      top: 65%;
+    }
+  
+    .hero button {
+      top: 75%;
+    }
+    /* .front-text{ */
+        /* text-align: center; */
+    /* } */
+    .disc{
+        position: absolute;
+        left: 0px;
+        margin-top: 80px;
+        animation: none;
+    }
+     .logo {
+      display: none;
+    } 
+    .logo-flex img{
+        width: 15vw;
+    }
+    .logo-flex{
+        display: inline-block;
+        position: absolute;
+        top: 0px;
+    }
+    .hero span{
+        top: 55%;
+        font-size: 15px;
+    }
+    .hero a{
+        top: 68%;
+    }
+    .hero button{
+        width: 30vw;
+        height: 5vh;
+    }
+    .nav-flex{
+        display: inline-block;
+        width: 15vw;
+        height: 6vh;
+        position: absolute;
+        right: 10px;
+        border: 2px solid white;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 3px;
+        cursor: pointer;
+    }
+    .line{
+        width:12vw ;
+        border: 2px solid white;
+        margin: 3px;
+    }
+   
+  }
+  
+   
+  
