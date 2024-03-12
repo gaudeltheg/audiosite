@@ -2,17 +2,19 @@
     .poetry-container{
         display: flex;
         width: 100%;
+        margin: 0px;
+        gap: 0;
     }
     .cards{
-        width: 46vw;
+        width: 78vw;
+        height: auto;
+        overflow: hidden;
         /* height: 30vh; */
     }
-    /* .image-container img{
-        width: 38vw;
-    } */
+    
 .container{
     margin: auto;
-    width: 40vw;
+    width: 71vw;
     margin-top: 15px;
 }
    .cards .container canvas{
@@ -21,12 +23,12 @@
    }
  
    .audio-container{
-    width: 40vw;
+    width: 71vw;
     left: 1%;
    }
    audio{
     left: 1%;
-    width: 41vw;
+    width: 65vw;
    }
    section{
     height: 10vh;
@@ -40,7 +42,8 @@
     width: 16vw;
    }
    .image-container img{
-    width: 40vw;
+    width: 60vw;
+    height: 30vh;
     
    }
    .popup{
