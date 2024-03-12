@@ -48,7 +48,7 @@
       <nav class="navbar" id="sidebar" onmouseover="expandSidebar()" onmouseout="collapseSidebar()">
         
         <div class="logo flex">
-          <a href="#">
+          <a href="index.php">
             <img src="logo.webp" alt="logo" />
           </a>
         </div>
@@ -128,7 +128,7 @@
                 <div class="poetry_container">
                     <h2>Poetry Section</h2>
                     <div class="box">
-                        <img src="logo.webp" alt="">
+                        <img src="https://th.bing.com/th/id/OIP.OLnrsvISPCD-Y65PfWSmtQHaE8?rs=1&pid=ImgDetMain" alt="">
                         <ul>
                             <?php
                             // Connect to the database
@@ -169,7 +169,7 @@
                 <div class="podcast_container">
                     <h2>Podcast Section</h2>
                     <div class="box">
-                        <img src="logo.webp" alt="">
+                        <img src="https://static.kent.ac.uk/nexus/ems/439.jpg" alt="">
                         <ul>
                             <?php
                             // Connect to the database
@@ -210,30 +210,30 @@
       <hr>
       <div class="footer-1">
           <div class="category">
-              <h2>Category-1</h2>
+              <h2>Pages</h2>
               <ul>
-                  <li><a href="#">First link</a></li>
-                  <li><a href="#">Second Link</a></li>
-                  <li><a href="#">Third link</a></li>
-                  <li><a href="#">Fourth link</a></li>
+                  <li><a href="index.php">Home</a></li>
+                  <li><a href="poetry.php">Poetry</a></li>
+                  <li><a href="podcast.php">Podcast</a></li>
+                  <li><a href="writing.php">Writings</a></li>
               </ul>
           </div>
           <div class="category">
-              <h2>Category-2</h2>
-              <ul>
-                  <li><a href="#">First link</a></li>
-                  <li><a href="#">Second Link</a></li>
-                  <li><a href="#">Third link</a></li>
-                  <li><a href="#">Fourth link</a></li>
-              </ul>
-          </div>
+                <h2>Connect On</h2>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
           <div class="category">
-              <h2>Category-3</h2>
+              <h2>UseFull Links</h2>
               <ul>
-                  <li><a href="#">First link</a></li>
-                  <li><a href="#">Second Link</a></li>
-                  <li><a href="#">Third link</a></li>
-                  <li><a href="#">Fourth link</a></li>
+                  <li><a href="#">Html</a></li>
+                  <li><a href="#">Css</a></li>
+                  <li><a href="#">Javascript</a></li>
+                  <li><a href="#">php</a></li>
               </ul>
           </div>
           <div class="subscribe">

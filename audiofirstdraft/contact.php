@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
       }
       .burger {
-        width: 13vw;
+        width: 14vw;
         height: 6vh;
         border: 2px solid black;
         border-radius: 5px;
@@ -115,6 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         flex-direction: column;
         justify-content: space-evenly;
         padding: 5px;
+        margin: 2px;
       }
       .line {
         border: 2px solid black;
@@ -126,7 +127,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgb(255, 255, 255);
+        background-color: rgba(71, 71, 71, 0.596); 
+        backdrop-filter: blur(11px);
+        color: whitesmoke;
         z-index: 999;
         transition: all 0.3s ease-in-out;
       }
@@ -139,12 +142,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
       .nav-items-flex ul li a{
         text-decoration: none;
-        color: black;
+        color: white;
+        font-size: 1.6rem;
       }
       .nav-items-flex ul li{
         margin: 5px;
         padding: 5px;
         list-style: none;
+      }
+      .close-button{
+        background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 0px;
+      }
+      *{
+        font-family:sans-serif ;
       }
     </style>
 </head>
@@ -197,8 +212,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <section class="text-gray-600 body-font relative">
       <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
         <div class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-          <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0" marginwidth="0" scrolling="no" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed" style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14962.064497835177!2d85.80014255541991!3d20.36159880000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19094076713875%3A0xb25b0c927e78c50f!2sKIIT%20University!5e0!3m2!1sen!2sin!4v1710254453165!5m2!1sen!2sin" width="100%" height="100%" style="border:0;"   class="absolute inset-0" frameborder="0" title="map" marginheight="0" marginwidth="0" scrolling="no" style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe>
+
+          <!-- <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0" marginwidth="0" scrolling="no" src=" " style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe> -->
+
           <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+
             <div class="lg:w-1/2 px-6">
               <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
               <p class="mt-1">Photo booth tattooed prism, portland taiyaki hoodie neutra typewriter</p>

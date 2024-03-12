@@ -75,8 +75,8 @@
         }
       }
       .burger {
-        width: 13vw;
-        height: 6vh;
+        width: 12vw;
+        height: 5vh;
         border: 2px solid black;
         border-radius: 5px;
         display: flex;
@@ -94,11 +94,15 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgb(255, 255, 255);
+        background-color: rgba(71, 71, 71, 0.596); 
+        backdrop-filter: blur(11px);
+        color: whitesmoke;
         z-index: 999;
         transition: all 0.3s ease-in-out;
       }
-
+      *{
+        font-family:sans-serif ;
+      }
       .nav-items-flex ul {
         display: flex;
         flex-direction: column;
@@ -107,12 +111,21 @@
       }
       .nav-items-flex ul li a{
         text-decoration: none;
-        color: black;
+        color: white;
+        font-size: 1.6rem;
       }
       .nav-items-flex ul li{
         margin: 5px;
         padding: 5px;
         list-style: none;
+      }
+      .close-button{
+        background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 0px;
       }
     </style>
 </head>

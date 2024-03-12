@@ -21,7 +21,7 @@
             left: 0;
             display: flex;
             flex-direction: column;
-            justify-content: space-evenly;
+            /* justify-content: space-evenly; */
             backdrop-filter: blur(10px);
             background-color: rgba(190, 190, 190, 0.187);
             cursor: pointer;
@@ -31,11 +31,15 @@
         .logo{
             margin-left: auto;
             margin-right: auto;
+            margin-top: 4vh;
             /* height: 10vh; */
         }
         .logo img{
-            width: 4vw;
+            width: 5vw;
             border-radius: 50%;
+        }
+        .nav-items{
+          margin-top: 20vh;
         }
         .nav-items ul li a{
             text-decoration: none;
@@ -66,7 +70,7 @@
     <nav class="navbar" id="sidebar" onmouseover="expandSidebar()" onmouseout="collapseSidebar()">
         
         <div class="logo">
-          <a href="index.html">
+          <a href="index.php">
             <img src="logo.webp" alt="logo" />
           </a>
         </div>
@@ -75,25 +79,25 @@
           <ul>
             <li>
               <span class="material-symbols-outlined">home</span>
-              <a href="index.html"> HOME </a>
+              <a href="index.php"> HOME </a>
             </li>
             <li>
               <span class="material-symbols-outlined">podcasts</span>
-              <a href="podcast.html"> PODCASTS</a>
+              <a href="podcast.php"> PODCASTS</a>
             </li>
             <li>
               <span class="material-symbols-outlined">library_music</span>
-              <a href="poetry.html"> POETRIES</a>
+              <a href="poetry.php"> POETRIES</a>
             </li>
             
             <li>
               <span class="material-symbols-outlined">event_note</span>
-              <a href="writing.html"> WRITINGS</a>
+              <a href="writing.php"> WRITINGS</a>
             </li>
             
             <li>
               <span class="material-symbols-outlined">contact_phone</span>
-              <a href="contact.html"> CONTACT</a>
+              <a href="contact.php"> CONTACT</a>
             </li>
           </ul>
         </div>

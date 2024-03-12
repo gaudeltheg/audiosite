@@ -6,7 +6,11 @@
     <title>Podcast</title>
     <link rel="stylesheet" href="podcast.css" />
     <link rel="stylesheet" href="podcast-responsive.css" />
+
     <style>
+      *{
+        font-family:sans-serif ;
+      }
       .nav-bar {
         display: none;
       }
@@ -33,8 +37,8 @@
         }
       }
       .burger {
-        width: 13vw;
-        height: 6vh;
+        width: 12vw;
+        height: 5vh;
         border: 2px solid black;
         border-radius: 5px;
         display: flex;
@@ -52,12 +56,16 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgb(255, 255, 255);
         z-index: 999;
+        background-color: rgba(71, 71, 71, 0.596);  
         transition: all 0.3s ease-in-out;
+        backdrop-filter: blur(11px);
+        color: whitesmoke;
       }
 
       .nav-items-flex ul {
+ margin-top: 15vh; 
+
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -65,7 +73,8 @@
       }
       .nav-items-flex ul li a{
         text-decoration: none;
-        color: black;
+    color: rgb(255, 255, 255);
+        font-size: 1.6rem;
       }
       .nav-items-flex ul li{
         margin: 5px;
@@ -73,6 +82,7 @@
         list-style: none;
       }
     </style>
+
 </head>
 <body>
 
@@ -113,7 +123,10 @@
       </ul>
     </div>
 
+    <div id="navbarContainer"></div>
+
     <div class="podcast-container">
+      
                 <?php
         // Establish a connection to the database
         $servername = "localhost";

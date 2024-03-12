@@ -60,6 +60,7 @@
         left: 0px;
         margin-top: 80px;
         animation: none;
+        width: 40vw;
     }
      .logo {
       display: none;
@@ -85,8 +86,8 @@
     }
     .nav-flex{
         display: inline-block;
-        width: 15vw;
-        height: 6vh;
+        width: 13vw;
+        height: 5vh;
         position: absolute;
         right: 10px;
         border: 2px solid white;
@@ -97,9 +98,11 @@
         align-items: center;
         padding: 3px;
         cursor: pointer;
+        opacity: 0.9;
     }
+    
     .line{
-        width:12vw ;
+        width:11vw ;
         border: 2px solid white;
         margin: 3px;
     }

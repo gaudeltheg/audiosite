@@ -71,8 +71,8 @@ if(isset($_GET['id'])) {
         }
       }
       .burger {
-        width: 13vw;
-        height: 6vh;
+        width: 12vw;
+        height: 5vh;
         border: 2px solid black;
         border-radius: 5px;
         display: flex;
@@ -90,12 +90,17 @@ if(isset($_GET['id'])) {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgb(255, 255, 255);
         z-index: 999;
         transition: all 0.3s ease-in-out;
+        background-color: rgba(71, 71, 71, 0.596); 
+        backdrop-filter: blur(11px);
+        color: whitesmoke;
       }
-
+      *{
+        font-family:sans-serif ;
+      }
       .nav-items-flex ul {
+ margin-top: 15vh; 
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -103,7 +108,8 @@ if(isset($_GET['id'])) {
       }
       .nav-items-flex ul li a{
         text-decoration: none;
-        color: black;
+        color: white;
+        font-size: 1.6rem;
       }
       .nav-items-flex ul li{
         margin: 5px;
@@ -115,14 +121,14 @@ if(isset($_GET['id'])) {
 <body>
 
     <div class="nav-bar">
-    <div class="logo-flex">
-        <a href="index.php"> <img src="logo.webp" alt="logo" /></a>
-    </div>
-    <div class="burger" onclick="toggleNavItemsFlex()">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-    </div>
+        <div class="logo-flex">
+            <a href="index.php"> <img src="logo.webp" alt="logo" /></a>
+        </div>
+        <div class="burger" onclick="toggleNavItemsFlex()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
 </div>
 
 <div class="nav-items-flex" id="navItemsFlex">
@@ -197,14 +203,14 @@ if(isset($_GET['id'])) {
     </div>
     <p id="popup-lyrics"></p>
     <audio class="audio popupaudio" controls id="popup-audio">
-        <!-- Audio Path -->
-        <source src="" type="audio/mpeg" />
+        <-- Audio Path -->
+        <!-- <source src="" type="audio/mpeg" />
     </audio>
     <div class="canvas">
         <canvas class="visualizer popup-canvas"></canvas>
     </div>
     <button class="playButton popup-playbutton" id="popup-play">Play</button>
-    <button class="okbtn" onclick="closePopup()">Close</button>
+    <button class="okbtn" onclick="closePopup()">Close</button> -->
 <!--</div>-->
 
 <!--<script>
@@ -235,6 +241,8 @@ if(isset($_GET['id'])) {
         document.getElementById('popup-audio').pause();
     }
 </script> -->
+<div id="footerContainer"></div>
+
     <script src="importNavbar.js"></script>
     <script src="importFooter.js"></script>
     <script src="poetry.js"></script>

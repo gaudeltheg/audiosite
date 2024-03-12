@@ -6,6 +6,9 @@
     <title>Writing Title</title>
 
     <style>
+      *{
+        font-family: sans-serif;
+      }
         .container{
             margin: auto;
             width: 80vw;
@@ -16,6 +19,8 @@
             font-family: sans-serif;
             height: auto;
             background-color: #dcdcdc3e;
+            margin-bottom: 14px;
+            margin-top: 7px;
         }
         .container h1{
             text-align: center;
@@ -55,14 +60,15 @@
         }
       }
       .burger {
-        width: 13vw;
-        height: 6vh;
+        width: 12vw;
+        height: 5vh;
         border: 2px solid black;
         border-radius: 5px;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         padding: 5px;
+        margin: 2px;
       }
       .line {
         border: 2px solid black;
@@ -74,12 +80,15 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgb(255, 255, 255);
         z-index: 999;
+        background-color: rgba(71, 71, 71, 0.596);  
         transition: all 0.3s ease-in-out;
+        backdrop-filter: blur(11px);
+        color: whitesmoke;
       }
 
       .nav-items-flex ul {
+ margin-top: 15vh; 
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -87,12 +96,21 @@
       }
       .nav-items-flex ul li a{
         text-decoration: none;
-        color: black;
+        color: white;
+        font-size: 1.6rem;
       }
       .nav-items-flex ul li{
         margin: 5px;
         padding: 5px;
         list-style: none;
+      }
+      .close-button{
+        background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 0px;
       }
     </style>
 
