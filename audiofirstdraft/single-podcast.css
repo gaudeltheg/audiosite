@@ -13,12 +13,10 @@ h2{
     font-size: 30px;
 }
 .podcast-container{
-    display: flex;
-    width: 95vw;
+   display: flex;
+    width: 85vw;
     height: auto;
-    /* background-color: #f6dddd5b; */
     border: 1px solid rgba(0, 0, 0, 0.358);
-    /* display: ; */
     margin: auto;
 }
 .options{
@@ -170,9 +168,11 @@ audio::-webkit-media-controls-panel {
     background-color: #764b4b;
   }
   .navigation{
-    margin: 8px;
+   margin: auto;
     display: flex;
     justify-content: space-between;
+    width: 85vw;
+    margin-top: 10px;
   }
   .navigation button{
     background-color: #FF6B6B;
