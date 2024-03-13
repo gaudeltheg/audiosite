@@ -13,11 +13,13 @@ h2{
     font-size: 30px;
 }
 .podcast-container{
-   display: flex;
+    display: flex;
     width: 85vw;
     height: auto;
     border: 1px solid rgba(0, 0, 0, 0.358);
     margin: auto;
+    border-radius: 10px;
+     
 }
 .options{
     background-color:#351225;
@@ -33,23 +35,7 @@ h2{
     color: white;
    
 }
-/* .container-1{
-     margin: auto; 
-    
-    left:8.1%; 
-    width: 95vw;
-    height: 71vh;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    position: absolute;
-    visibility: hidden;
-    flex-direction: column;
-    background-color: white;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear;
-} */
+ 
 .container.open, .container-1.open {
     visibility: visible;
     opacity: 1;
@@ -64,7 +50,7 @@ h2{
 
 .container{
     /* margin: auto; */
-    width: 95vw;
+    width: 85vw;
     height: auto;
     display: flex;
     /* justify-content: center; */
@@ -74,6 +60,7 @@ h2{
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
+    border-radius: 10px;
 
 }
 .title{
@@ -168,11 +155,12 @@ audio::-webkit-media-controls-panel {
     background-color: #764b4b;
   }
   .navigation{
-   margin: auto;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     width: 85vw;
     margin-top: 10px;
+
   }
   .navigation button{
     background-color: #FF6B6B;
