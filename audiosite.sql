@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2024 at 07:01 PM
+-- Generation Time: Mar 13, 2024 at 02:26 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `audiosite`
 --
+CREATE DATABASE IF NOT EXISTS `audiosite` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `audiosite`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `contact`
 --
 
+DROP TABLE IF EXISTS `contact`;
 CREATE TABLE `contact` (
   `id` int(255) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -34,25 +37,18 @@ CREATE TABLE `contact` (
   `message` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `contact`
---
-
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `fpodcasts`
 --
 
+DROP TABLE IF EXISTS `fpodcasts`;
 CREATE TABLE `fpodcasts` (
-  `id` int(11) NOT NULL,
+  `id` int(255) NOT NULL,
   `audiofile` varchar(500) NOT NULL,
   `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `fpodcasts`
---
 
 -- --------------------------------------------------------
 
@@ -60,32 +56,12 @@ CREATE TABLE `fpodcasts` (
 -- Table structure for table `fpoetries`
 --
 
+DROP TABLE IF EXISTS `fpoetries`;
 CREATE TABLE `fpoetries` (
-  `id` int(1) NOT NULL,
+  `id` int(255) NOT NULL,
   `audiofile` varchar(500) NOT NULL,
   `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `fpoetries`
---
-
--- --------------------------------------------------------
-
---
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `audiosite`
---
 
 -- --------------------------------------------------------
 
@@ -93,6 +69,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `loginadmin`
 --
 
+DROP TABLE IF EXISTS `loginadmin`;
 CREATE TABLE `loginadmin` (
   `id` int(255) NOT NULL,
   `username` varchar(255) NOT NULL,
@@ -109,37 +86,15 @@ INSERT INTO `loginadmin` (`id`, `username`, `password`, `uid`) VALUES
 (77788, 'aayush', '#@#@AAYush78', 5),
 (77777, 'liberty', '!!LIBerty@@##7', 7);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `loginadmin`
---
-ALTER TABLE `loginadmin`
-  ADD PRIMARY KEY (`uid`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `loginadmin`
---
-ALTER TABLE `loginadmin`
-  MODIFY `uid` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-COMMIT;
-
---
-
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `podcasts`
 --
 
+DROP TABLE IF EXISTS `podcasts`;
 CREATE TABLE `podcasts` (
-  `id` int(11) NOT NULL,
+  `id` int(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `author` varchar(255) NOT NULL,
   `audiofile` varchar(500) NOT NULL,
@@ -148,18 +103,15 @@ CREATE TABLE `podcasts` (
   `image` varchar(2000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `podcasts`
---
-
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `poetries`
 --
 
+DROP TABLE IF EXISTS `poetries`;
 CREATE TABLE `poetries` (
-  `id` int(11) NOT NULL,
+  `id` int(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `author` varchar(255) NOT NULL,
   `audiofile` varchar(500) NOT NULL,
@@ -168,15 +120,13 @@ CREATE TABLE `poetries` (
   `image` varchar(2000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `poetries`
---
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `writings`
 --
 
+DROP TABLE IF EXISTS `writings`;
 CREATE TABLE `writings` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -184,9 +134,6 @@ CREATE TABLE `writings` (
   `description` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `writings`
---
 --
 -- Indexes for dumped tables
 --
@@ -241,19 +188,19 @@ ALTER TABLE `writings`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `fpodcasts`
 --
 ALTER TABLE `fpodcasts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `fpoetries`
 --
 ALTER TABLE `fpoetries`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `loginadmin`
@@ -265,19 +212,19 @@ ALTER TABLE `loginadmin`
 -- AUTO_INCREMENT for table `podcasts`
 --
 ALTER TABLE `podcasts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `poetries`
 --
 ALTER TABLE `poetries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `writings`
 --
 ALTER TABLE `writings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
