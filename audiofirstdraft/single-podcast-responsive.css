@@ -3,7 +3,7 @@
     display: none;
 }
 .container{
-    width: 90%;
+    width: 95vw;
     /* margin: auto; */
 }
 .container-1{
@@ -12,7 +12,9 @@
  left: 5%;
  align-items: flex-start;
 }
-
+.podcast-container{
+    width: 95vw;
+}
 .audio-container{
     width: 80%;
     height: auto;
