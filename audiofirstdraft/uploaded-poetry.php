@@ -14,7 +14,7 @@ if (!isset($_SESSION['loggedIn'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uploaded Podcast</title>
+    <title>Uploaded Poetry</title>
     <link rel="stylesheet" href="//cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
@@ -113,10 +113,10 @@ if (!isset($_SESSION['loggedIn'])) {
         <table id="myTable">
             <thead>
                 <tr>
-                    <th>Podcast Title</th>
+                    <th>Poetry Title</th>
                     <th>Author Name</th>
-                    <th>Podcast File</th>
-                    <th>Podcast Image</th>
+                    <th>Poetry File</th>
+                    <th>Poetry Image</th>
                     <th>Lyrics/Description</th>
                     <th>Actions</th>
                 </tr>
@@ -138,7 +138,7 @@ if (!isset($_SESSION['loggedIn'])) {
                 }
 
                 // Fetch data from the 'poetries' table
-                $sql = "SELECT * FROM podcasts";
+                $sql = "SELECT * FROM poetries";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -148,7 +148,7 @@ if (!isset($_SESSION['loggedIn'])) {
                         echo "<td>".$row['title']."</td>";
                         echo "<td>".$row['author']."</td>";
                         echo "<td>".$row['audiofile']."</td>";
-                        echo "<td><img src='images/".$row['image']."' alt='Podcast Image'></td>"; // Display image
+                        echo "<td><img src='images/".$row['image']."' alt='Poetry Image'></td>"; // Display image
                         echo "<td>".$row['lyrics']."</td>";
                         echo "<td>";
                         echo "<button class='btn btn-edit' onclick='editRow(" . json_encode($row) . ")'>Edit</button>";
@@ -167,16 +167,16 @@ if (!isset($_SESSION['loggedIn'])) {
 
     <!-- Popup form for editing -->
     <div id="editFormPopup" class="popup-form">
-        <h2>Edit Podcast</h2>
-        <form id="editForm" action="edit_entry_podcast.php" method="post" enctype="multipart/form-data">
+        <h2>Edit Poetry</h2>
+        <form id="editForm" action="edit_entry_poetry.php" method="post" enctype="multipart/form-data">
             <input type="hidden" id="editId" name="editId">
-            <label for="editTitle">Podcast Title:</label>
+            <label for="editTitle">Poetry Title:</label>
             <input type="text" id="editTitle" name="editTitle" required>
             <label for="editAuthor">Author Name:</label>
             <input type="text" id="editAuthor" name="editAuthor" required>
-            <label for="editAudioFile">New Podcast Audio File:</label>
+            <label for="editAudioFile">New Poetry Audio File:</label>
             <input type="file" id="editAudioFile" name="editAudioFile">
-            <label for="editImage">New Podcast Image:</label>
+            <label for="editImage">New Poetry Image:</label>
             <input type="file" id="editImage" name="editImage">
             <label for="editLyrics">Lyrics/Description:</label>
             <textarea id="editLyrics" name="editLyrics" required></textarea>
@@ -227,9 +227,9 @@ if (!isset($_SESSION['loggedIn'])) {
 
     // Function to handle deleting a row
     function deleteRow(id) {
-        if (confirm("Are you sure you want to delete this Podcast?")) {
-            // Redirect to the delete action page with the Podcast ID
-            window.location.href = "delete_entry_podcast.php?id=" + id;
+        if (confirm("Are you sure you want to delete this poetry?")) {
+            // Redirect to the delete action page with the poetry ID
+            window.location.href = "delete_entry_poetry.php?id=" + id;
         }
     }
     </script>

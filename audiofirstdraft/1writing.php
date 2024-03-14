@@ -177,8 +177,10 @@ if(isset($_GET['id'])) {
     }
 
     // Prepare a SQL query to fetch the writing details based on the ID
-    $sql = "SELECT * FROM writings WHERE id = $writingId";
-    $result = $conn->query($sql);
+    $sql = $conn->prepare("SELECT * FROM writings WHERE id = ?");
+    $sql->bind_param("i", $writingId);
+    $sql->execute();
+    $result = $sql->get_result();
 
     if ($result->num_rows > 0) {
         // Output data of the writing
@@ -198,6 +200,7 @@ if(isset($_GET['id'])) {
     echo "Writing ID not provided";
 }
 ?>
+
 
     <div id="footerContainer"></div>
     <script src="importNavbar.js"></script>

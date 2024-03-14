@@ -226,6 +226,7 @@
             window.location.href = 'single-podcast.php?title=' + encodeURIComponent(title);
         }
     </script>
+
      <script>
       function toggleNavItemsFlex() {
        const aaa =  document.getElementById('navItemsFlex');
@@ -238,5 +239,12 @@
        bbb.style.display='none';
       }
     </script>
+     <script>
+    // Function to clear the browser's cache when leaving the page
+    window.addEventListener('unload', function() {
+        // Clear the cache by reloading the page
+        window.location.reload(true);
+    });
+</script>
 </body>
 </html>

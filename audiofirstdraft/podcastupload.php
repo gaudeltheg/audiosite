@@ -84,6 +84,7 @@ if (!isset($_SESSION['loggedIn'])) {
 
         <input type="submit" value="Upload">
     </form>
+    <a href="dashboard.php" class="btn">Back to Dashboard</a>
 </div>
 
 <?php
@@ -141,7 +142,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (move_uploaded_file($_FILES["image_file"]["tmp_name"], $image_target_file)) {
                 // Execute the SQL statement to insert new record
                 if ($insert_stmt->execute() === TRUE) {
-                    echo '<script>alert("Successfully uploaded!");</script>';
+                    echo '<script>alert("Successfully uploaded!"); window.location.href="' . $_SERVER["PHP_SELF"] . '";</script>';
+                    exit;
                 } else {
                     echo "Error: " . $insert_stmt->error;
                 }
@@ -155,10 +157,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Close statements and connection
     $check_stmt->close();
-    $insert_stmt->close();
+    if (isset($insert_stmt)) {
+        $insert_stmt->close();
+    }
     $conn->close();
 }
 ?>
+<script>
+    // Disable browser back button for this page
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+        history.go(1);
+    };
+</script>
 
 </body>
 </html>

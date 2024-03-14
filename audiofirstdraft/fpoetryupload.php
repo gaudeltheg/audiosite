@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (move_uploaded_file($audio_tmp, $target_file)) {
                 // File uploaded successfully
                 if ($insert_stmt->execute()) {
-                    echo '<script>alert("Successfully uploaded!");</script>';
+                    echo '<script>alert("Successfully uploaded!"); window.location.href="' . $_SERVER["PHP_SELF"] . '";</script>';
                 } else {
                     echo "Error: " . $insert_stmt->error;
                 }
@@ -144,6 +144,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" value="Upload">
     </form>
 </div>
-
+<script>
+    // Disable browser back button for this page
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+        history.go(1);
+    };
+</script>
 </body>
 </html>

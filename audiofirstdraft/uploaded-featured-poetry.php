@@ -14,7 +14,7 @@ if (!isset($_SESSION['loggedIn'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uploaded Podcast</title>
+    <title>Uploaded Featured Poetry</title>
     <link rel="stylesheet" href="//cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
@@ -113,11 +113,8 @@ if (!isset($_SESSION['loggedIn'])) {
         <table id="myTable">
             <thead>
                 <tr>
-                    <th>Podcast Title</th>
-                    <th>Author Name</th>
-                    <th>Podcast File</th>
-                    <th>Podcast Image</th>
-                    <th>Lyrics/Description</th>
+                    <th>Featured Poetry Title</th>
+                    <th>Poetry File</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -137,8 +134,8 @@ if (!isset($_SESSION['loggedIn'])) {
                     die("Connection failed: " . $conn->connect_error);
                 }
 
-                // Fetch data from the 'poetries' table
-                $sql = "SELECT * FROM podcasts";
+                // Fetch data from the 'fpoetries' table
+                $sql = "SELECT * FROM fpoetries";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -146,10 +143,7 @@ if (!isset($_SESSION['loggedIn'])) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
                         echo "<td>".$row['title']."</td>";
-                        echo "<td>".$row['author']."</td>";
                         echo "<td>".$row['audiofile']."</td>";
-                        echo "<td><img src='images/".$row['image']."' alt='Podcast Image'></td>"; // Display image
-                        echo "<td>".$row['lyrics']."</td>";
                         echo "<td>";
                         echo "<button class='btn btn-edit' onclick='editRow(" . json_encode($row) . ")'>Edit</button>";
                         echo "<button class='btn btn-delete' onclick='deleteRow(" . $row['id'] . ")'>Delete</button>";
@@ -157,7 +151,7 @@ if (!isset($_SESSION['loggedIn'])) {
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='6'>No results found</td></tr>";
+                    echo "<tr><td colspan='3'>No results found</td></tr>";
                 }
                 $conn->close();
                 ?>
@@ -167,19 +161,13 @@ if (!isset($_SESSION['loggedIn'])) {
 
     <!-- Popup form for editing -->
     <div id="editFormPopup" class="popup-form">
-        <h2>Edit Podcast</h2>
-        <form id="editForm" action="edit_entry_podcast.php" method="post" enctype="multipart/form-data">
+        <h2>Edit Featured Poetry</h2>
+        <form id="editForm" action="edit_entry_fpoetry.php" method="post" enctype="multipart/form-data">
             <input type="hidden" id="editId" name="editId">
-            <label for="editTitle">Podcast Title:</label>
+            <label for="editTitle">Featured Poetry Title:</label>
             <input type="text" id="editTitle" name="editTitle" required>
-            <label for="editAuthor">Author Name:</label>
-            <input type="text" id="editAuthor" name="editAuthor" required>
-            <label for="editAudioFile">New Podcast Audio File:</label>
+            <label for="editAudioFile">New Featured Poetry Audio File:</label>
             <input type="file" id="editAudioFile" name="editAudioFile">
-            <label for="editImage">New Podcast Image:</label>
-            <input type="file" id="editImage" name="editImage">
-            <label for="editLyrics">Lyrics/Description:</label>
-            <textarea id="editLyrics" name="editLyrics" required></textarea>
             <input type="submit" value="Update">
         </form>
         <button onclick="closeEditForm()">Cancel</button>
@@ -191,21 +179,10 @@ if (!isset($_SESSION['loggedIn'])) {
     // Preload form fields with existing data
     document.getElementById('editId').value = row.id;
     document.getElementById('editTitle').value = row.title;
-    document.getElementById('editAuthor').value = row.author;
-    document.getElementById('editLyrics').value = row.lyrics;
 
-    // Clear the previous image and audio elements
-    var oldImage = document.getElementById('currentImage');
+    // Clear the previous audio elements
     var oldAudio = document.getElementById('currentAudio');
-    if (oldImage) oldImage.remove();
     if (oldAudio) oldAudio.remove();
-
-    // Display the current image
-    var currentImage = document.createElement('img');
-    currentImage.id = 'currentImage';
-    currentImage.src = 'images/' + row.image;
-    currentImage.alt = 'Current Image';
-    document.getElementById('editForm').insertBefore(currentImage, document.getElementById('editImage'));
 
     // Display the current audio file
     var currentAudio = document.createElement('audio');
@@ -218,8 +195,6 @@ if (!isset($_SESSION['loggedIn'])) {
     document.getElementById('editFormPopup').style.display = 'block';
 }
 
-
-
     // Function to close the edit popup
     function closeEditForm() {
         document.getElementById('editFormPopup').style.display = 'none';
@@ -227,9 +202,9 @@ if (!isset($_SESSION['loggedIn'])) {
 
     // Function to handle deleting a row
     function deleteRow(id) {
-        if (confirm("Are you sure you want to delete this Podcast?")) {
-            // Redirect to the delete action page with the Podcast ID
-            window.location.href = "delete_entry_podcast.php?id=" + id;
+        if (confirm("Are you sure you want to delete this featured poetry?")) {
+            // Redirect to the delete action page with the poetry ID
+            window.location.href = "delete_entry_fpoetry.php?id=" + id;
         }
     }
     </script>

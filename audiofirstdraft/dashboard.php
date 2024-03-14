@@ -135,7 +135,6 @@ $username = $_SESSION['username'];
         <div class="section">
             <h2><a href="Uploaded-Featured-Poetry.php">Uploaded-Featured-Poetry</a></h2>
         </div>
-        
         <div class="section">
             <h2><a href="podcastupload.php">Podcasts Upload Section</a></h2>
         </div>
@@ -161,5 +160,11 @@ $username = $_SESSION['username'];
     <div class="footer">
         &copy; 2024 Admin Dashboard | All rights reserved
     </div>
+    <script type="text/javascript">
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+        history.go(1);
+    };
+</script>
 </body>
 </html>
