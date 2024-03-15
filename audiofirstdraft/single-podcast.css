@@ -13,8 +13,8 @@ h2{
     font-size: 30px;
 }
 .podcast-container{
-    display: flex;
-    width: 95vw;
+  display: flex;
+    width: 85vw;
     height: auto;
     /* background-color: #f6dddd5b; */
     border: 1px solid rgba(0, 0, 0, 0.358);
@@ -65,8 +65,8 @@ h2{
 }
 
 .container{
-    /* margin: auto; */
-    width: 95vw;
+   /* margin: auto; */
+    width: 85vw;
     height: auto;
     display: flex;
     /* justify-content: center; */
@@ -170,9 +170,11 @@ audio::-webkit-media-controls-panel {
     background-color: #764b4b;
   }
   .navigation{
-    margin: 8px;
     display: flex;
-    justify-content: space-between;
+      justify-content: space-between;
+      margin: auto;
+      width: 85vw;
+      margin-top: 8px;
   }
   .navigation button{
     background-color: #FF6B6B;
