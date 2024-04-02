@@ -1,12 +1,28 @@
 <?php
 session_start();
 
+// Generate CAPTCHA if not already generated
+if (!isset($_SESSION['captcha'])) {
+    generateCaptcha();
+}
+
+function generateCaptcha() {
+    $alpla = array_merge(range('A', 'Z'), range('a', 'z'), range(0, 9), ['!', '@', '#', '$', '%', '^', '&', '*', '+']);
+    $captcha = '';
+    for ($i = 0; $i < 6; $i++) {
+        $captcha .= $alpla[array_rand($alpla)];
+    }
+
+    $_SESSION['captcha'] = $captcha;
+}
+
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate form fields
     $userID = $_POST['userID'];
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $enteredCaptcha = $_POST['captcha'];
 
     // Validate and sanitize user input to prevent SQL injection
     $userID = filter_var($userID, FILTER_SANITIZE_NUMBER_INT);
@@ -16,6 +32,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate username and password to prevent SQL injection
     if (empty($userID) || empty($username) || empty($password)) {
         header("Location: dashboardlogin.php?error=invalid_input");
+        exit();
+    }
+
+    // Validate CAPTCHA
+    if ($_SESSION['captcha'] !== $enteredCaptcha) {
+        header("Location: dashboardlogin.php?error=invalid_captcha");
         exit();
     }
 
@@ -95,6 +117,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         border-radius: 5px;
         box-sizing: border-box;
     }
+    .group{
+        display: flex;
+        justify-content: space-between;
+    }
+    .group.row{
+        flex-basis: 50%;
+    }
     .btn-login {
         width: 100%;
         padding: 10px;
@@ -123,15 +152,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h1>Audio Project</h1>
     <div class="container">
         <h2>Admin Panel</h2>
-        <form method="post">
+        <form id="loginForm" method="post">
             <label for="userID">User ID:</label>
             <input type="number" id="userID" name="userID" required>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
+            <label>Enter Captcha:</label>
+            <div class="group">
+                <div class="row row-1">
+                    <input type="text" readonly id="capt" value="<?php echo $_SESSION['captcha']; ?>">
+                </div>
+                <div class="row">
+                    <input type="text" id="textinput" name="captcha" placeholder="Enter Captcha Here" required>
+                </div>
+            </div>
+            <button type="button" onclick="refreshCaptcha()">Regenerate Captcha</button>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
             <button type="submit" class="btn-login">Login</button>
         </form>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function refreshCaptcha() {
+            $.ajax({
+                url: 'generate_captcha.php',
+                success: function(data) {
+                    $('#capt').val(data);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
